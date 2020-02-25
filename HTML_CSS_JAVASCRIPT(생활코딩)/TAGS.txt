@@ -1,0 +1,14 @@
+HTML TAGS
+<head> : 웹페이지에 보이지 않는 부분
+<body> : 웹페이지에 보이는 부분
+<html> : head,body를 감싸는 가장 고위층 태그
+<title> : 웹페이지 제목 설정
+<meta> : utf-8과 같은것 설정
+<a> : 링크 설정 [href="웹페이지 주소", target="_blank" 새창설정, title="설명"]
+<img> : 이미지 첨부 [scr="img", width="100%",]
+<p> : 단락 설정
+<ul> : Unordered List 순서없는 리스트
+<ol> : Ordered List 순서있는 리스트
+	<li> : 리스트
+<br> : 줄바꿈
+<h1,h2 ...h6> : 제목설정
