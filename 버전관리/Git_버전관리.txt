@@ -1,0 +1,23 @@
+git init : Initialize repository 저장소 초기화
+
+.git : git repository 
+
+git status : working tree status 현재상태
+
+git add : add to staging area 스테이지상태로 올리기
+
+git commit : create version 버전 생성
+
+git log : show version 현재까지 버전 보여줌
+
+git log --stat : 변화보여줌
+
+git diff : Show changes 바뀐부분 보여줌 (버전간의 차이점)
+
+git checkout : 해당버전으로 바꿈
+
+git log -p : 하위파일 변경부분 다 보여줌
+
+git reset --hard : 해당버전으로 리셋
+
+git revert : 해당버전의 전단계로 바꿈 순차적으로 진행해야함
