@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /*세로*/
+            * 
+            {
+                color:black;
+            }
+            /* 가로 */
+            /* Desktop의 화면은 가로화면(landscape)이므로 바로 아래 rule이 적용된다.
+            @media screen and (orientation: landscape;)
+            {
+                *
+                {
+                    color:blue;
+                }
+            } */
+            @media screen and(max-device-width:760px) /*디바이스가 모바일일때*/ and (orientation:landscape) /*가로화면이면*/
+            {
+                *
+                {
+                    color:blue;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>@media practice: orientation</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </body>
+</html>

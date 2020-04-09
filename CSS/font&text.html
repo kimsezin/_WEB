@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /*font : font-style(optional) font-variant(optional)  font-weight(optional)  font-size(optional)  line-height(optional)  font-family(optional) */
+            .serif
+            {
+                font-family : "Times New Roman", Times, serif;
+            }
+            .sans-serif
+            {
+                font-family:Arial, Helvetica, sans-serif;
+            }
+            .monospace
+            {
+                font-family:"Courier New", Courier, monospace;
+            }
+            .italic
+            {
+                font-style:italic;
+            }
+            .light
+            {
+                font-weight: lighter;
+            }
+            .thick
+            {
+                font-weight: bold;
+            }
+            .thicker
+            {
+                font-weight: 900;
+            }
+            hr
+            {
+                border:3;
+                height:3px;
+                background: #ccc;
+            }
+            .small
+            {
+                line-height : 70%; /* 16px * 70% */
+            }
+            .big 
+            {
+                line-height: 1.2; /* 16px * 1.2 */
+            }
+            .lh-3x 
+            {
+                line-height: 3.0; /* 16px * 3 */
+            }
+            .button
+            {
+                width:150px;
+                height:70px;
+                background-color:#ff6a00;
+                border-radius:30px;
+                box-shadow: 5px 5px 5px #A9A9A9;
+            }
+            .button > a
+            {
+                display: block;
+                font : italic bold 2em/70px Arial, Helvetica, sans-serif;
+                text-decoration: none;
+                text-align:center;
+            }
+            .loose
+            {
+                letter-spacing : 2px;
+            }
+            .tight
+            {
+                letter-spacing: -1px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>font-family</h1>
+        <p class="serif">Times New Roman font.</p>
+        <p class="sans-serif">Arial font.</p>
+        <p class="monospace">Courier New font.</p>
+        <hr class="hr">
+        <p>normal style.</p>
+        <p class="italic">font-style: italic</p>
+      
+        <p class="light">font-weight: lighter</p>
+        <p class="thick">font-weight: bold</p>
+        <p class="thicker">font-weight: 900</p>
+        <hr class="hr">
+
+        <p>
+            default line-height.<br>
+            default line-height.<br>
+            대부분 브라우저의 default line height는 약 110% ~ 120%.<br>
+          </p>
+        
+          <p class="small">
+            line-height: 70%<br>
+            line-height: 70%<br>
+          </p>
+        
+          <p class="big">
+            line-height: 1.2<br>
+            line-height: 1.2<br>
+          </p>
+        
+          <p class="lh-3x">
+            line-height: 3.0<br>
+            line-height: 3.0<br>
+          </p>
+        <hr class="hr">
+        <div class="button">
+            <a href="#">Click</a>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+
+        <p class="loose">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      
+        <p class="tight">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    </body>
+</html>

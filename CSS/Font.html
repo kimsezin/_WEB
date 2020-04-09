@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body 
+            {
+                font-size: 14px;
+                text-align:center;
+            }
+            div 
+            {
+                font-size: 1.2rem;
+                font-weight :bold;
+                padding: 2em; /*em은 요소에 지정된 사이즈를 1로 변환한것 */
+            }
+            .box1 
+            {
+                background-color: rgba(255,0,0,0.2);
+            }
+            .box2
+            {
+                background-color: rgba(255,0,0,0.6);
+            }
+            .box3
+            {
+                background-color: rgba(255,0,0,0.8);
+            }
+        </style>
+    </head>
+    <body>
+        <div class='box1'>Font Size : 14px * 120% -> 16.8px
+            <div class='box2'>Font Size ; 16.8px * 120% -> 20.16px
+                <div class='box3'>Font Size : 20.16px * 120% -> 24.192px
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
