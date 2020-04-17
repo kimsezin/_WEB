@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <button>배경색 변경</button>
+        </div>
+        <script>
+            function bluify(e)
+            {
+                console.log('this : ', this);
+                console.log('e.target : ',e.target);
+                console.log('e.currentTarget : ',e.currentTarget);
+
+                console.log(this === e.currentTarget);
+                console.log(this === e.target);
+
+                this.style.backgroundColor = '#A5D9F3';
+            }
+
+            document.querySelector('div').addEventListener('click',bluify);
+        </script>
+    </body>
+</html>

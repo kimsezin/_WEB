@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .red  { color: #ff0000; }
+      .blue { color: #0000ff; }
+      .yellow {color : yellow;}
+      .green {color : green;}
+      .black {color : black;}
+    </style>
+  </head>
+  <body>
+    
+    <div>
+      <h1>Cities</h1>
+      <ul>
+        <li id="one" class="red">Seoul</li>
+        <li id="two" class="red">London</li>
+        <li id="three" class="red">Newyork</li>
+        <li id="four">Tokyo</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    /*3.1 하나의 요소 선택*/
+    let elem = document.getElementById('one');
+    elem.className = 'red';
+
+    // 그림: DOM tree의 객체 구성 참고
+    console.log(elem); // <li id="one" class="blue">Seoul</li>
+    console.log(elem.__proto__);           // HTMLLIElement
+    console.log(elem.__proto__.__proto__); // HTMLElement
+    console.log(elem.__proto__.__proto__.__proto__);           // Element
+    console.log(elem.__proto__.__proto__.__proto__.__proto__); // Node
+
+    elem = document.querySelector('li.red');
+    //elem.className = 'blue';
+    console.log(elem);
+
+
+
+
+    /*3.2 여러개의 요소노드 선택*/
+    elems = document.getElementsByClassName('red');
+    // for(let i=elems.length-1; i >= 0 ;i--)
+    // {
+    //     elems[i].className = 'blue';
+    // }
+    
+    console.log([...elems]); //[li#one.red, li#two.red, li#three.red]
+    //가장 권장하는 방법
+    [...elems].forEach(elems => elems.className ='blue');
+    
+    //querySelectorAll은 Nodelist(non-live)를 반환한다.
+    //elems = document.querySelectorAll('red');
+    //[...elems].forEach(elems => elems.className ='blue');
+
+
+
+    /*3.3 DOM Traversing(탐색)*/
+    elem = document.querySelector('#two');
+    console.log(elem.parentNode);
+    elem.parentNode.className = 'yellow';
+
+    elem = document.querySelector('ul');
+    elem.firstElementChild.className = 'yellow';
+    elem.lastElementChild.className = 'green';
+
+    elem = document.querySelector('ul');
+
+    if(elem.hasChildNodes())
+    {
+         //텍스트 요소를 포함한 모든 자식요소 반환
+        //NodeList(9) [text, li#one.red, text, li#two.red, text, li#three.red, text, li#four, text]
+        console.log(elem.childNodes);
+
+        // 자식 요소 중에서 Element type 요소만을 반환한다.
+        // HTMLCollection(4) [li#one.red, li#two.red, li#three.red, li#four, one: li#one.red, two: li#two.red, three: li#three.red, four: li#four]
+        console.log(elem.children);
+
+        [...elem.children].forEach(el => console.log(el.nodeType)); // 1 (=> Element node)
+    }
+
+    elem = document.querySelector('ul');
+    elem.firstElementChild.nextElementSibling.className ='blue';
+    elem.firstElementChild.nextElementSibling.previousElementSibling.className = 'blue';
+
+
+    console.log('--------------------------------------------------------------');
+    
+    
+    /* 4.DOM Manipulation(조작)*/
+    let one = document.getElementById('one');
+    console.dir(one);
+
+    console.log(one.nodeName);
+    console.log(one.nodeType); // 1 : Element node
+
+    let textNode = one.firstChild;
+
+    console.log(textNode.nodeName);
+    console.log(textNode.nodeType); //3 : Text node
+
+    console.log(textNode.nodeValue);
+
+    textNode.nodeValue = 'Pusan';
+
+    elems = document.querySelectorAll('li');
+    
+    //className
+    [...elems].forEach(elem => {
+    // class 어트리뷰트 값을 취득하여 확인
+    if (elem.className === 'blue') {
+        // class 어트리뷰트 값을 변경한다.
+        elem.className = 'red';
+    }
+    });
+
+    //classList
+    [...elems].forEach(elem => {
+        if(elem.classList.contains('red'))
+        {
+            elem.classList.replace('red','blue');
+        }
+    });
+
+    //h1태그 요소중 첫번째 요소를 취득
+    let heading = document.querySelector('h1');
+    
+    console.dir(heading);
+    console.log(heading.firstChild.nodeValue);
+
+    //id 어트리뷰트값을 변경
+    //id 어트리뷰트가 존재하지 않으면 id어트리뷰트를 생성하고 지정된 값을 설정
+    heading.id = 'heading';
+    console.log(heading.id);
+
+
+    //HTML 콘텐츠 조작
+
+    let ul = document.querySelector('ul');
+
+    //요소의 텍스트 취득
+    console.log(ul.textContent);
+    // Pusan, London, Newyork, Tokyo
+
+    one = document.getElementById('one');
+
+    //요소의 텍스트 취득
+    console.log(one.textContent);
+
+    one.textContent += ', Korea';
+
+    console.log(one.textContent);
+
+    //요소의 마크업이 포함된 콘텐츠 변경
+    //one.textContent = '<h1>Heading</h1>'
+    console.log(one.textContent);
+
+
+
+    console.log(ul.innerHTML);
+    one = document.getElementById('one');
+
+    //innerHTML 프로퍼티를 사용하여 마크업이 포함된 새로운 콘텐츠를 지정하면 새로운 요소를 DOM에 추가할 수 있다.
+    console.log(one.innerHTML);
+    one.innerHTML += '<em class="blue">, Korea</em>';
+
+    console.log(one.innerHTML);
+
+
+    /* 4.4 DOM 조작 방식 */
+    let newElem = document.createElement('li');// 태그만 들어갈 수 있음
+    
+    let newText = document.createTextNode('Beijing');
+
+    newElem.appendChild(newText);
+
+    let container = document.querySelector('ul');
+
+    container.appendChild(newElem);
+
+    let removeElem = document.getElementById('one');
+
+    container.removeChild(removeElem);
+
+    one = document.getElementById('one');
+
+    // 마크업이 포함된 요소 추가
+    //one.insertAdjacentHTML('beforeend', '<em class="blue">, Korea</em>');
+    
+    
+    //innerHTML과 insertAdjacentHTML()은 크로스 스크립팅 공격(XSS: Cross-Site Scripting Attacks)에 취약하다. 
+    //따라서 untrusted data의 경우, 주의하여야 한다. 텍스트를 추가 또는 변경시에는 textContent, 새로운 요소의 추가 또는 삭제시에는 DOM 조작 방식을 사용하도록 한다.
+    
+    /* 5. Style */
+    let four = document.getElementById('four');
+
+    four.style.color = 'black';
+
+    four.style.fontSize = '2em';
+  </script>
+</html>

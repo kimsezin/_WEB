@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html,body {height:100%};
+        </style>
+    </head>
+    <body>
+        <p>버블링 이벤트 <button>버튼</button></p>
+        <script>
+            let body = document.querySelector('body');
+            let para = document.querySelector('p');
+            let button = document.querySelector('button');
+
+            //버블링 : 자식요소에서 발생한 이벤트가 부모요소로 전파되는것
+            body.addEventListener('click',function()
+            {
+                console.log('Handler for body');
+            })
+
+            para.addEventListener('click', function()
+            {
+                console.log('Handler for paragraph');
+            })
+
+            button.addEventListener('click',function()
+            {
+                console.log('Handler for button');
+            })
+
+        </script>
+    </body>
+</html>
