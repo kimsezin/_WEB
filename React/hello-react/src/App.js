@@ -1,22 +1,35 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import LifeCycleSample from './LifeCycleSample';
+import ErrorBoundary from './ErrorBoudary';
 
-function App()
-{
-  const name = '리액트';
-  return (
-    <>
-      {/*주석은 이렇게 작성합니다. */}
-      <div 
-      className = "react" //시작태그를 여러줄로 작성하게 된다면 여기에 주석을 작성할 수도 있습니다.
-      >
-        {name}
-      </div>
-      //하지만 이런 주석이나
-      /* 이런 주석은 페이지에 그대로 나타나게 됩니다. */
-      <input />
-    </>
-  )
+//랜덤 색상을 정합니다.
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777245).toString(16); //16777245는 hex ffffff값
 }
 
+class App extends Component {
+  state = {
+    color: getRandomColor(),
+  };
+  render() {
+    return <LifeCycleSample />;
+  }
+
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor(),
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>랜덤 색상</button>
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
+      </div>
+    );
+  }
+}
 export default App;
